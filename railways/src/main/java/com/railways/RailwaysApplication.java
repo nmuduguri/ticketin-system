@@ -8,17 +8,18 @@ public class RailwaysApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RailwaysApplication.class, args);
-		
+
 		System.out.println("this is my railways application");
-		
+
 		System.out.println("Ticket Booking System Application Still in Development Stage1.");
-		
+
 		System.out.println("Ticket Booking System Application Still in Development Stage2..");
-		
+
 		System.out.println("Ticket Booking System Application Still in Development Stage3..");
-		
+
 		System.out.println("Ticket Booking System Application Still in Development Stage4..");
-	System.out.println("hello hiii");
+		
+		System.out.println("hello hiii");
 	}
 
 }
