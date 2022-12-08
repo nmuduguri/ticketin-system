@@ -19,3 +19,14 @@ public class UserDetailsCache {
 	
 	
 }
+
+
+// @Component
+// @Bean
+// @Controller == @Component + Some Editional capcity ()
+// @Service 	== @Component + Some Business functionality capacity()
+// @Reposiotry	== @Component + it will convert database exp into java exp
+// @RestController== @Component + @ReponseBody + Some Editional capcity ()
+
+
+
