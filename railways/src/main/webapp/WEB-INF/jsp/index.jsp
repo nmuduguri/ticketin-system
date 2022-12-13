@@ -56,7 +56,7 @@
     </form>   
 </body>  
 <br><br><br><br>
-<form action="/comments">
+<form action="/comments" style="text-align:left">
     <p><label for="comments" style="color: green;">Your Suggestions for Site Improvemnt!!</label></p>
     <textarea id="comments" name="comments" rows="6" cols="80" placeholder="Add You Suggestions Here!" ></textarea>
     <br>

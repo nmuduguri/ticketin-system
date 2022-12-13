@@ -45,5 +45,17 @@ public class RegistrationController {
 
 		return "welcome";
 	}
+	
+	@PostMapping("/backToHome")
+	public String backToHome() {
+		
+		if(userDetailsCache != null && userDetailsCache.getUserDetails() != null) {
+			
+			return "welcom";
+		}
+		
+		return "index";
+		
+	}
 
 }

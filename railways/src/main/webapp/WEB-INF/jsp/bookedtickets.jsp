@@ -7,8 +7,8 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
 <title>View All Tickets</title>
-
-<h1 style="color:green; text-align:center">View All Tickets</h1>
+<h1 style="color:green; text-align:center">{availableTickets}</h1>
+<h1 style="color:green; text-align:center">{noTickets}</h1>
 <style>
     table, th, td {
       border: 1px solid black;
@@ -57,6 +57,13 @@ pageEncoding="ISO-8859-1"%>
 </div>
 </form>
 </body>
-<br>
+<br><br><br><br>
+<form action="/comments" style="text-align:left">
+    <p><label for="comments" style="color: green;">Your Suggestions for Site Improvemnt!!</label></p>
+    <textarea id="comments" name="comments" rows="6" cols="80" placeholder="Add You Suggestions Here!" ></textarea>
+    <br>
+    <input type="submit" style="background-color:brown; color:azure" value="Submit">
+  </form>
+  <br><br><br><br>
 <marquee style="background-color:green; color:azure;" behavior="scroll" direction="left">Reservation System Site Still in Development Stage!! </marquee>
 </html>

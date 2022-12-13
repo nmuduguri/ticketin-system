@@ -48,7 +48,7 @@
         </div> 
     </form>   
     <p></p>
-    <form action="/backToWelcome" method="post" style="text-align:center">
+    <form action="/backToHome" method="post" style="text-align:center">
         <div>
         <button style="background-color:brown; color:azure">Home Page</button>
     </div>
@@ -56,7 +56,14 @@
     
 
 </body> 
-<br>
+<br><br>
+<form action="/comments" style="text-align:left">
+    <p><label for="comments" style="color: green; align-self: start;">Your Suggestions for Site Improvemnt!!</label></p>
+    <textarea id="comments" name="comments" rows="4" cols="80" placeholder="Add You Suggestions Here!" ></textarea>
+    <br>
+    <input type="submit" style="background-color:brown; color:azure" value="Submit">
+  </form>
+  <br><br>
 <marquee style="background-color:green; color:azure;" behavior="scroll" direction="left">Reservation System Site Still in Development Stage!! </marquee>
 </html>
 
