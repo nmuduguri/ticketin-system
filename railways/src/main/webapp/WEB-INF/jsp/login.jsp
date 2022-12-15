@@ -51,7 +51,7 @@
     <input type="submit" style="background-color:brown; color:azure" value="Submit">
   </form>
   <br><br><br><br>
-<marquee style="text-align: grid-row-end;" behavior="scroll" direction="left">Reservation System Site Still in Development Stage!! </marquee>
+<marquee style="background-color:green; color:azure;" behavior="scroll" direction="left">Reservation System Site Still in Development Stage!! </marquee>
 </html>
 
  

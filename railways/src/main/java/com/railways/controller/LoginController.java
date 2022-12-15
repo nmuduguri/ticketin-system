@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.railways.UserDetailsCache;
 import com.railways.model.UserDetails;
+import com.railways.service.EmailService;
 import com.railways.service.LoginService;
 
 @Controller
@@ -18,25 +19,26 @@ public class LoginController {
 	@Autowired
 	UserDetailsCache userDetailsCache;
 	
-	
+	@Autowired
+	public EmailService emailService;
 
 	@PostMapping("/login")
-	public String login(String email, String password, ModelMap model) {
+	public String login(String email, String password, ModelMap model)throws Exception {
 		
-		System.out.println("email is :"+email);
-		System.out.println("password is :"+password);
+		;
 		
 		UserDetails user = loginServie.getUserDetails(email);
 		
-		System.out.println("user details :" + user);
 		
 		if (user != null && user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
 			
-			model.put("userName", user.getFname() +" "+ user.getLname());
+			model.put("userName", user.getFname());
+			model.put("email", email);
 			
+			emailService.sendOtpMessage(email);
 			userDetailsCache.setUserDetails(user);
 			
-			return "welcome";
+			return "otp";
 		} else {
 			
 			model.put("loginErrorMsg", "Please Try With Valid UserName & Password");
