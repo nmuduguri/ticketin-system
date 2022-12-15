@@ -20,22 +20,20 @@
 <title style="color:green"> Login Page Details</title>
 </head>  
 <body> 
-    <h1 style="color:green; text-align: center;">Please Login</h1>
+    <h1 style="color:green; text-align: center;">Please Enter Registered Email</h1>
     <p> </p><br>
-    <h4 style="color:red; text-align: center;">${loginErrorMsg}</h4> 
-    <form method="post" action="/login">
+    <form method="post" action="/forgotPassword">
         <div class="container"> 
             <label style="text-align:center">Email : </label> 
-            <input type="text" placeholder="Enter Email" name="email" style="text-align:center" required><br></br>
-            <label>Password : </label> 
-            <input type="password" placeholder="Enter Password" name="password" style="text-align:center" required><br></br>
-            <button type="submit" name="login" value="login" style="text-align:center; background-color:brown; color:azure; width:220">Login</button>
-            <a styel="text-align: margin-right; width=220" href="/forgotPassword">Forgot Password or Change Password</a>
+            <input type="text" placeholder="Enter Regitered Email" name="email" style="text-align:center" required><br>
+            <p><span class="small" style="color:green; text-align: center; width: 200px;">&emsp;&emsp;&emsp;Note: OTP will send to this given email.</span><br></p>
+            <h4 style="color:red; text-align: center;">${forgotPasswordErrorMsg}</h4> 
+            <button type="submit" name="login" value="passwordOTP" style="text-align:center; background-color:brown; color:azure">Submit</button>
         </div>
     </form>
 
     <p></p>
-    <form action="/" style="text-align: center">
+    <form action="/" style="text-align:center">
         <div>
         <button style="background-color:brown; color:azure">Back</button>
     </div>

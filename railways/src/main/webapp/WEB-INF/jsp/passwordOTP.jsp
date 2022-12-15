@@ -17,31 +17,30 @@
       }
         </style>
 <meta name="viewport" text-align="center" content="width=device-width, initial-scale=1">
-<title style="color:green"> Login Page Details</title>
+<title style="color:green"> Verify OTP Page Details</title>
 </head>  
 <body> 
-    <h1 style="color:green; text-align: center;">Please Login</h1>
+    <h1 style="color:green; text-align: center;">Please Verify With Valid OTP</h1>
     <p> </p><br>
-    <h4 style="color:red; text-align: center;">${loginErrorMsg}</h4> 
-    <form method="post" action="/login">
+    <form method="post" action="/passwordOTP">
         <div class="container"> 
-            <label style="text-align:center">Email : </label> 
-            <input type="text" placeholder="Enter Email" name="email" style="text-align:center" required><br></br>
-            <label>Password : </label> 
-            <input type="password" placeholder="Enter Password" name="password" style="text-align:center" required><br></br>
-            <button type="submit" name="login" value="login" style="text-align:center; background-color:brown; color:azure; width:220">Login</button>
-            <a styel="text-align: margin-right; width=220" href="/forgotPassword">Forgot Password or Change Password</a>
+            <label style="text-align:center">Enter OTP : </label> 
+            <input type="text" placeholder="Enter OTP" name="otp" style="text-align:center"><br>
+            <p style="color:red">${otpErrorMsg}</p>
+            <input type="hidden" value="${email}" name="email">
+            <input type="hidden" value="${userName}" name="fname">
+            
+            <button type="submit" name="verifyOTP" value="passwordOTP" style="text-align:center; background-color:brown; color:azure">Verify OTP</button>
+            <button type="submit" name="verifyOTP" value="newOTP" style="text-align:center; background-color:brown; color:azure">New OTP</button>
         </div>
     </form>
 
     <p></p>
-    <form action="/" style="text-align: center">
+    <form action="/index?login=registe" style="text-align:center">
         <div>
         <button style="background-color:brown; color:azure">Back</button>
     </div>
     </form>
-      
-    <h1>${errorMessage}</h1>
     
 </body>
 <br><br><br><br>

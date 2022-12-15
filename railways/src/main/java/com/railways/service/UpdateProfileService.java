@@ -43,6 +43,9 @@ public class UpdateProfileService {
 		if (user.getEmail() != null && !user.getEmail().isBlank()) {
 			dbUserDetails.setEmail(user.getEmail());
 		}
+		if (user.getPassword() != null && !user.getPassword().isBlank()) {
+			dbUserDetails.setPassword(user.getPassword());
+		}
 		if (user.getCity() != null && !user.getCity().isBlank()) {
 			dbUserDetails.setCity(user.getCity());
 		}
