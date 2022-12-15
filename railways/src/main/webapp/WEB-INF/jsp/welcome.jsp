@@ -20,7 +20,7 @@
 <body>
     <form style="text-align:center" method="post" action="/welcome" class="container">
         <div>
-            <h1>Hello ${userName}, Welcome to Ticket Regiservation System </h1>
+            <h1>Hello ${userName}, Welcome to Ticket Reservation System </h1>
             </div>
         </div>
         <div> 

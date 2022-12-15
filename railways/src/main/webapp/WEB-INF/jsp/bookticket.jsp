@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style>
+    span.small {
+      font-size: smaller;
+    }
+    div {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  label {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    
+  }
+  .gender {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+}
+    </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
     var stations = {
@@ -108,17 +128,17 @@
 
 <div class="container">
 
-<label> Enter First Name :</label>
+<label>    First Name* :</label>
 <input type="text" placeholder="Enter First Name" name="fname" required><br/><br/>
 
-<label> Enter Last Name :</label>
+<label>     Last Name* :</label>
 <input type="text"placeholder="Enter Last Name" name="lname" required><br/><br/>
 
-<label> Enter Age :</label>
+<label>           Age* :</label>
 <input type="text"placeholder="Enter Age " name="age" required><br/><br/>
 
-<label for="gender">Gender* :</label>
-            <select name="gender" id="gender" required>
+<label class="gender">Gender* :</label>
+            <select class="gender" name="gender" id="gender" required>
                 <option value="" selected="selected"> Select Gender </option>
                 <option>Male</option>
                 <option>Female</option>
@@ -130,34 +150,34 @@
             <input type="date" id="doj" name="doj" required>
             <p style="color:red">${dojErrorMsg}</p>
 
-<label> From :</label>
+<label>From* :</label>
 <select name="source" id="source" style="width: 150px;" required>
     <option value="" selected="selected">Select From Station </option>
   </select>
   <br><br>
-<label> To :</label>
+<label>To* :</label>
 <select name="destination" id="destination" style="width: 150px;" required>
     <option value="" selected="selected">Select Dest Station </option>
   </select>
   <br><br>
-<label> Train :</label>
+<label>Train* :</label>
 <select name="trainName" id="trainName" style="width: 150px;" required>
     <option value="" selected="selected">Choose Train </option>
   </select>
   <br><br>
 
-  <label> Enter No.Of Tickets :</label>
+  <label>No.Of Tickets* :</label>
 <input type="text" name="tickets"><br/>
 <p style="color:red">${ticketsErrorMsg}</p>
 
-<label> Amount :</label>
+<label>Amount :</label>
 <input type="text" name="amount" value="1000"><br/><br/>
 
-<label> Enter Mobile Number :</label>
+<label>Mobile No* :</label>
 <input type="text" name="mobile" required><br/>
 <p style="color:red">${mobileErrorMsg}</p>
 
-<label> Enter Email :</label>
+<label>Email* :</label>
 <input type="text" name="email" required><br/><br/>
 <p style="color:red">${emailErrorMsg}</p>
 

@@ -2,14 +2,20 @@ package com.railways.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.railways.controller.TicketBookingController;
 import com.railways.model.Ticket;
 import com.railways.repository.BookingRepository;
 
 @Service
 public class BookingService {
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(BookingService.class);
+
 
 	@Autowired
 	BookingRepository brepo;
@@ -18,7 +24,9 @@ public class BookingService {
 	public static Integer pnrNo = 4001;
 
 	public void save(Ticket ticket) {
-		// String pnrNo=UUID.randomUUID().toString();
+		
+		LOGGER.info("Ticket Booking Started: {}",ticket);
+
 		ticket.setPnrNo(pnrNo.toString());
 		Integer totalTickets = ticket.getTickets();
 		if (available != 0 && totalTickets > available) {
@@ -34,10 +42,7 @@ public class BookingService {
 					ticket.getAge(), ticket.getTrainName(), ticket.getDestination(), (totalTickets - available),
 					ticket.getSource(), ticket.getAmount(), "Waiting", pnrNo.toString());
 
-			// Ticket(String fname, String lname, String gender, String doj, Integer age,
-			// String trainName,
-			// String destination, Integer tickets, String source, float amount, String
-			// status, String pnrNo) {
+			
 			brepo.save(ticket2);
 
 			System.out.println("ticket details are :" + ticket);
@@ -56,6 +61,8 @@ public class BookingService {
 			brepo.save(ticket);
 		}
 		pnrNo++;
+		
+		LOGGER.info("Ticket Booking Done..");
 	}
 
 	public List<Ticket> getAllTickets() {

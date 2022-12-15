@@ -1,5 +1,7 @@
 package com.railways.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +13,9 @@ import com.railways.utils.UserUtility;
 
 @Controller
 public class TicketBookingController {
+	
+	
+	 private static Logger LOGGER = LoggerFactory.getLogger(TicketBookingController.class);
 
 	@Autowired
 	BookingService bser;
@@ -20,6 +25,8 @@ public class TicketBookingController {
 	@PostMapping("/bookTicket")
 	public String save(String fname, String lname, String gender, String doj, String age, String trainName, String tickets, String source, String destination,
 			String amount, String mobile, String email, ModelMap model) {
+		
+		LOGGER.info("Ticket Boooking Starte..");
 
 		boolean errorFlag = userUtility.ticketValidation(fname, lname, gender, doj, age, trainName, tickets, source, destination, amount,
 				mobile, email, model);
@@ -47,6 +54,8 @@ public class TicketBookingController {
 
 		bser.save(ticket);
 		model.put("successMsg", "Ticket Booking is Successfull");
+		
+		LOGGER.info("Ticket Boooking Done..");
 		return "success";
 	}
 }

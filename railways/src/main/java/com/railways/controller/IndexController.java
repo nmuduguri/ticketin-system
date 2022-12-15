@@ -19,14 +19,14 @@ public class IndexController {
 	@Autowired
 	BookingService bser;
 
-	@GetMapping("/")
+	@GetMapping("/*")
 	public String trainReservation() {
 		return "index";
 	}
 	
 	@GetMapping("/index")
 	public String register(String login) {
-		if (login.equalsIgnoreCase("login"))
+		if (login != null && login.equalsIgnoreCase("login"))
 			return "login";
 		else
 			return "registration";

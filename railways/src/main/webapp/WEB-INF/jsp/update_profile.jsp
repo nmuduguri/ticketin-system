@@ -1,13 +1,33 @@
 <!DOCTYPE html> 
 <html> 
 <head>
+    <style>
+        span.small {
+          font-size: smaller;
+        }
+        div {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+        
+      }
+      .gender {
+        display: inline-block;
+        width: 150px;
+        text-align: center;
+    }
+        </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>  
 <body style="text-align:center">  
    <h1 style="color:green" style="text-align:center"> Please Enter All The Fields to Register</h1>
    <p> </p><br>
     
-    <form method="post" action="/updateUserDetails" style="text-align:center">
+    <form method="post" action="/updateUserDetails">
         <div class="container"> 
             <label>Enter Frist Name : </label> 
             <input type="text" placeholder="Enter Name" name="fname" ><br></br>
@@ -16,13 +36,13 @@
             <input type="text" placeholder="Enter Name" name="lname"><br></br>
             <p style="color:red">${lnameErrorMsg}</p>
             <label for="cars">Gender :</label>
-            <select name="gender" id="gender">
+            <select class="gender" name="gender" id="gender">
                 <option value="" selected="selected"> Select </option>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Others</option>
             </select><br></br>
-            <label for="birthday">Birthday Of Birth :</label>
+            <label>Birthday Of Birth :</label>
             <input type="date" id="dob" name="dob">
             <p style="color:red">${ageErrorMsg}</p>
             <label>Enter Email : </label> 

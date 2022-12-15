@@ -32,7 +32,7 @@ public class LoginController {
 		
 		if (user != null && user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
 			
-			model.put("username", user.getFname() +" "+ user.getLname());
+			model.put("userName", user.getFname() +" "+ user.getLname());
 			
 			userDetailsCache.setUserDetails(user);
 			

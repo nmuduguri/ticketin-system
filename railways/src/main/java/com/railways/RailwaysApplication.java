@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class RailwaysApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		SpringApplication.run(RailwaysApplication.class, args);
 
 		System.out.println("this is my railways application");
@@ -18,10 +18,6 @@ public class RailwaysApplication {
 		System.out.println("Ticket Booking System Application Still in Development Stage3..");
 
 		System.out.println("Ticket Booking System Application Still in Development Stage4..");
-		
-		System.out.println("hello hiii");
-		
-		System.out.println("hello hiii");
 	}
 
 }
