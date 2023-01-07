@@ -3,8 +3,10 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
+                sh "cd /home/ubuntu/projects"
                 sh "sudo systemctl stop railways.service"
                 sh "git clone https://github.com/nmuduguri/ticketin-system.git"
+                sh "cd ticketin-system"
                 sh "mvn clean -f railways"
             }
         }
@@ -20,7 +22,8 @@ pipeline {
         }
         stage('package') {
             steps {
-                sh "mvn package -f railways"
+                sh "mvn clean package -f railways"
+                sh "cp ./railways/target/railways.war ../../projects"
                 sh "chmod 777 railways.war"
                 sh "sudo systemctl start railways.service"
             }
