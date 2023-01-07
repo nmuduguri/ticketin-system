@@ -4,6 +4,7 @@ pipeline {
         stage('git repo & clean') {
             steps {
                 sh "cd /home/ubuntu/projects"
+                sh "touch test.txt"
                 sh "sudo systemctl stop railways.service"
                 sh "git clone https://github.com/nmuduguri/ticketin-system.git"
                 sh "cd ticketin-system"
