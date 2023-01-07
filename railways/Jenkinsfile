@@ -21,6 +21,7 @@ pipeline {
         stage('package') {
             steps {
                 sh "mvn package -f railways"
+                sh "chmod 777 railways.war"
                 sh "sudo systemctl start railways.service"
             }
         }
