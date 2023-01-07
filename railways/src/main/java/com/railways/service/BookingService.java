@@ -18,7 +18,7 @@ public class BookingService {
 
 
 	@Autowired
-	BookingRepository brepo;
+	BookingRepository bookingRepository;
 
 	public static int available = 5;
 	public static Integer pnrNo = 4001;
@@ -33,7 +33,7 @@ public class BookingService {
 
 			ticket.setStatus("Confirmed");
 			ticket.setTickets(available);
-			brepo.save(ticket);
+			bookingRepository.save(ticket);
 
 			System.out.println("ticket details are :" + ticket);
 
@@ -43,7 +43,7 @@ public class BookingService {
 					ticket.getSource(), ticket.getAmount(), "Waiting", pnrNo.toString());
 
 			
-			brepo.save(ticket2);
+			bookingRepository.save(ticket2);
 
 			System.out.println("ticket details are :" + ticket);
 
@@ -54,11 +54,11 @@ public class BookingService {
 
 			ticket.setStatus("Confirmed");
 			ticket.setTickets(ticket.getTickets());
-			brepo.save(ticket);
+			bookingRepository.save(ticket);
 			available = available - ticket.getTickets();
 		} else {
 			ticket.setStatus("Waiting");
-			brepo.save(ticket);
+			bookingRepository.save(ticket);
 		}
 		pnrNo++;
 		
@@ -66,7 +66,7 @@ public class BookingService {
 	}
 
 	public List<Ticket> getAllTickets() {
-		return brepo.findAll();
+		return bookingRepository.findAll();
 	}
 
 }

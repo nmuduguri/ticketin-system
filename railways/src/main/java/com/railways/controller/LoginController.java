@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.railways.UserDetailsCache;
 import com.railways.model.UserDetails;
@@ -39,6 +40,7 @@ public class LoginController {
 
 			model.put("userName", user.getFname());
 			model.put("email", email);
+			
 
 			emailService.sendOtpMessage(email);
 			userDetailsCache.setUserDetails(user);
@@ -150,5 +152,7 @@ public class LoginController {
 		}
 
 	}
+	
+	
 
 }

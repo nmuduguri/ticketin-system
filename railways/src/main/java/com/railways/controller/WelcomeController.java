@@ -19,7 +19,7 @@ public class WelcomeController {
 	UserDetailsCache userDetailsCache;
 
 	@Autowired
-	BookingService bser;
+	BookingService bookingService;
 
 	@PostMapping("/welcome")
 	public String welcome(String welcome, ModelMap model) {
@@ -44,7 +44,7 @@ public class WelcomeController {
 				}
 
 				else if (welcome.equals("canceltickets")) {
-					List<Ticket> noOfTickets = bser.getAllTickets();
+					List<Ticket> noOfTickets = bookingService.getAllTickets();
 
 					System.out.println("no of tickets " + noOfTickets);
 					if (noOfTickets != null && noOfTickets.size() > 0)
@@ -55,7 +55,7 @@ public class WelcomeController {
 
 				else if (welcome.equals("bookedtickets")) {
 
-					List<Ticket> noOfTickets = bser.getAllTickets();
+					List<Ticket> noOfTickets = bookingService.getAllTickets();
 
 					System.out.println("no of tickets " + noOfTickets);
 					if (noOfTickets != null && noOfTickets.size() > 0) {

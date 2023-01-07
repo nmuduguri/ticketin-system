@@ -1,5 +1,7 @@
 package com.railways.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +13,12 @@ import com.railways.service.UpdateProfileService;
 
 @Controller
 public class ProfileController {
+
+	private static Logger LOGGER = LoggerFactory.getLogger(ProfileController.class);
+	
+	String type1 = "electorincs";
+	String type2 = "medical";
+	
 
 	@Autowired
 	private UpdateProfileService updateProfileService;
@@ -51,8 +59,7 @@ public class ProfileController {
 			model.put("commonErrorMsg", "Atleast Update One Field");
 			return "error";
 		}
-		
-		
+
 		UserDetails user = new UserDetails(fname, lname, gender, email, null, city, mobile, dob, null);
 
 		updateProfileService.updateUserDetails(user);

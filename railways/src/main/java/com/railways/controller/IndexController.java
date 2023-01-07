@@ -1,5 +1,6 @@
 package com.railways.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.railways.model.Comments;
 import com.railways.model.Ticket;
 import com.railways.service.BookingService;
 
@@ -17,13 +19,51 @@ import com.railways.service.BookingService;
 public class IndexController {
 
 	@Autowired
-	BookingService bser;
+	BookingService bookingService;
 
-	@GetMapping("/*")
+	@GetMapping("/")
 	public String trainReservation() {
 		return "index";
 	}
-	
+
+	@GetMapping("/test")
+	@ResponseBody
+	public List<List<Comments>> test() {
+
+		Comments c1 = new Comments();
+		c1.setId(120);
+		c1.setComments("test1");
+
+		Comments c2 = new Comments();
+		c2.setId(121);
+		c2.setComments("test2");
+
+		Comments c3 = new Comments();
+		c3.setId(123);
+		c3.setComments("test3");
+
+		Comments c4 = new Comments();
+		c4.setId(124);
+		c4.setComments("test4");
+
+		List<Comments> list1 = new ArrayList<>();
+
+		list1.add(c1);
+		list1.add(c2);
+
+		List<Comments> list2 = new ArrayList<>();
+
+		list2.add(c3);
+		list2.add(c4);
+
+		List<List<Comments>> clist = new ArrayList<>();
+		clist.add(list1);
+		clist.add(list2);
+		
+		return clist;
+
+	}
+
 	@GetMapping("/index")
 	public String register(String login) {
 		if (login != null && login.equalsIgnoreCase("login"))
@@ -31,10 +71,6 @@ public class IndexController {
 		else
 			return "registration";
 	}
-	
-	
-	
-	
 
 	@PostMapping("/book")
 	public String bookTicket(String ticket, ModelMap model) {
@@ -42,7 +78,7 @@ public class IndexController {
 			return "ticketbooking";
 		} else {
 
-			List<Ticket> noOfTickets = bser.getAllTickets();
+			List<Ticket> noOfTickets = bookingService.getAllTickets();
 
 			System.out.println("no of tickets " + noOfTickets);
 			if (noOfTickets != null && noOfTickets.size() > 0)
@@ -63,7 +99,7 @@ public class IndexController {
 		tb.setFname(fname);
 		tb.setLname(lname);
 
-		bser.save(tb);
+		bookingService.save(tb);
 		return "success";
 	}
 
@@ -76,7 +112,7 @@ public class IndexController {
 	@PostMapping("/bookTicket2")
 	@ResponseBody
 	public Ticket bookTicket(@RequestBody Ticket t) {
-		bser.save(t);
+		bookingService.save(t);
 		return null;
 	}
 
