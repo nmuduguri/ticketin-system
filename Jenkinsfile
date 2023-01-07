@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
+                sh "pwd"
                 sh "cd /home/ubuntu/projects/"
                 sh "sudo touch test.txt"
                 sh "sudo systemctl stop railways.service"
