@@ -9,6 +9,7 @@ pipeline {
                 sh "sudo systemctl stop railways.service"
                 sh "git clone https://github.com/nmuduguri/ticketin-system.git"
                 sh "cd ticketin-system"
+		sh "touch file1.txt"
                 sh "mvn clean -f railways"
             }
         }
